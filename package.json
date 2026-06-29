@@ -1,0 +1,29 @@
+{
+  "name": "nimble-http",
+  "version": "1.0.0",
+  "description": "Zero-dependency Node.js HTTP client with interceptors, automatic retry, timeout, redirect handling, gzip/br decompression, and progress tracking. A leaner, more capable alternative to axios and node-fetch.",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "test": "node --test test/test.js",
+    "example": "node example.js"
+  },
+  "keywords": [
+    "http",
+    "https",
+    "client",
+    "fetch",
+    "axios",
+    "request",
+    "interceptor",
+    "retry",
+    "timeout",
+    "zero-dependency"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}
