@@ -49,6 +49,17 @@ async function main() {
   } catch (err) {
     console.log('Contoh abort tertangkap:', err.code);
   }
+
+  // Response caching — request kedua tidak akan hit jaringan lagi selama TTL belum lewat
+  const cached1 = await api.get('/posts/1', { cache: true }); // default TTL 60 detik
+  const cached2 = await api.get('/posts/1', { cache: true });
+  console.log('Request kedua dari cache?', Boolean(cached2.fromCache));
+
+  // Upload file via FormData — fetch otomatis set boundary multipart yang benar
+  const form = new FormData();
+  form.append('title', 'laporan');
+  form.append('file', new Blob(['isi file contoh'], { type: 'text/plain' }), 'contoh.txt');
+  // await api.post('/upload', form); // aktifkan kalau endpoint upload tersedia
 }
 
 main().catch((err) => {
